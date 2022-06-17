@@ -1,6 +1,6 @@
 const sumAll = function(begin, end) {
     let sum = 0;
-    if (typeof begin === 'string' || typeof end === 'string') {
+    if (typeof begin !== 'number' || typeof end !== 'number') {
         return "ERROR";
     } if (begin < 0 || end < 0) {
         return "ERROR";
