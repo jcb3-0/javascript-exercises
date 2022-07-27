@@ -1,5 +1,6 @@
 const palindromes = function (string) {
-    let uppercase = string.toUpperCase();
+    let lettersOnly = string.replace(/[^a-z]/ig, "")
+    let uppercase = lettersOnly.toUpperCase();
     let stringArray = Array.from(uppercase);
     let backwardsArray = [];
     for (let i = 0; i < stringArray.length; i++) {
@@ -7,10 +8,8 @@ const palindromes = function (string) {
     };
     for (let i = 0; i < stringArray.length; i++) {
         if (stringArray[i] != backwardsArray[i]) {
-            console.log(stringArray[i]);
             return false;
         } else if (stringArray[i] == backwardsArray[i]){
-            console.log(stringArray[i]);
             if (i == stringArray.length - 1) {
                 return true;
             };
