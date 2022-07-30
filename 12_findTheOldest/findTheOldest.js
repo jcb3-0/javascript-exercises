@@ -1,7 +1,16 @@
 const findTheOldest = function(people) {
-    let oldest = people[0].yearOfDeath - people[0].yearOfBirth;
+    for (let person of people) {
+        person.age = 0;
+        if (person.yearOfDeath == undefined) {
+           let today = new Date();
+           person.age = today.getFullYear() - person.yearOfBirth;
+        } else {
+            person.age = person.yearOfDeath - person.yearOfBirth
+        }
+    }
+    let oldest = people[0];
     for (let i = 1; i < people.length; i++) {
-        if (people[i].yearOfDeath - people[i].yearOfBirth > oldest) {
+        if (people[i].age > people[0].age) {
             oldest = people[i];
         }
         return oldest;
